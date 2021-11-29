@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Leetcode {
+    public:
+
+    int findNumbers(vector<int>& nums) {
+        //declare variables
+        int count, size;
+        count = 0;
+        size = nums.size();
+
+        for (int i = 0; i < size; i++)
+        {
+            // counting number of digits
+            int cnt = 0;
+            while(nums[i]) {
+                nums[i] /= 10;
+                cnt++;
+            }
+
+            if(cnt%2 == 0) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+
+    int solve(vector<int> &nums) {
+        return findNumbers(nums);
+    }
+};
+
+int main () {
+
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+
+    // input length
+    int n;
+    cin >> n;
+
+    //vector
+    vector<int> nums;
+
+    // input content
+    for (int i = 0; i < n; i++)
+    {
+        int temp;
+        cin >> temp;
+
+        nums.push_back(temp);
+    }
+
+    // Object creation and method calling
+    Leetcode lt;
+    cout << lt.solve(nums) <<endl;
+}
