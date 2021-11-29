@@ -4,27 +4,36 @@ using namespace std;
 class Leetcode {
     public:
 
+    // count the digits
+    int countDigits(int num) {
+        int ans = 0;
+
+        // untill the digit become 0
+        while(num) {
+            num /= 10;
+            ans++;
+        }
+        return ans;
+    }
+
     int findNumbers(vector<int>& nums) {
-        //declare variables
-        int count, size;
-        count = 0;
-        size = nums.size();
+    
+        // declare variable 
+        int count = 0;
 
-        for (int i = 0; i < size; i++)
+        // iterating vector
+        for (int i = 0; i < nums.size(); i++)
         {
-            // counting number of digits
-            int cnt = 0;
-            while(nums[i]) {
-                nums[i] /= 10;
-                cnt++;
-            }
+            //taking no of digits
+            int digits = countDigits(nums[i]);
 
-            if(cnt%2 == 0) {
+            //checking whether digits are even
+            if(digits %2 == 0) {
                 count++;
             }
         }
-        
-        return count;
+
+        return count;        
     }
 
     int solve(vector<int> &nums) {
