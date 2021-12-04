@@ -66,5 +66,6 @@ int main () {
 
     // Object creation and method calling
     Leetcode lt;
+    cout << lt.solve(nums);
     cout << lt.solve(nums, p, nums2, t) <<endl;
 }
